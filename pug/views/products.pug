@@ -1,0 +1,25 @@
+extends layout 
+
+block content
+
+    h1=title
+
+    #products
+        if products
+            div(class="table-responsive")
+                table( class="table table-dark")
+                    tr(style="color: yellow;")
+                        th Producto
+                        th Precio
+                        th Imagen
+                    each p in products
+                        tr
+                            td= p.title
+                            td= p.price
+                            td 
+                                img(src=p.thumbnail class="img-thumbnail" alt="Responsive image")
+        else 
+            h3(class="alert alert-danger") no se encontraron datos
+
+    a(href="/")
+        input( type="button" value="Create New Product")
